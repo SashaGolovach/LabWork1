@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="input-group mb-3">
+        <select class="custom-select" id="searchType">
+          <option selected>Message ends with...</option>
+          <option>Search by usernames</option>
+        </select>
+        <div class="input-group mb-3" ng-if="searchType.selectedIndex == 0">
+          <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
+            aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">Button</button>
+          </div>
+        </div>
+        <div class="input-group" ng-if="searchType.selectedIndex == 1">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="">First and last name</span>
+          </div>
+          <input type="text" class="form-control">
+          <input type="text" class="form-control">
+        </div>
+        <div class="input-group-append">
+          <label class="input-group-text" for="inputGroupSelect02">Options</label>
+        </div>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col order-12">
+      Second, but last
+    </div>
+    <div class="col order-1">
+      Third, but first
+    </div>
+  </div>
+</div>
