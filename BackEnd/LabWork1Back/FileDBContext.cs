@@ -10,7 +10,7 @@ namespace LabWork1Back
     [Serializable]
     public class LocalDB
     {
-        List<Message> data = new List<Message>();
+        public List<Message> data = new List<Message>();
     }
 
     public class FileDBContext : IDBApiController
@@ -27,7 +27,7 @@ namespace LabWork1Back
 
         public List<Message> getAllMessages()
         {
-            return localDB.
+            return localDB.data;
         }
 
         public List<Message> getMessages(string userFromID, string userToID, MessageType type)
@@ -57,5 +57,7 @@ namespace LabWork1Back
                 Logger.Write(String.Format("DB on {0} has been serialized", path));
             }
         }
+
+        public void LoadData() { }
     }
 }

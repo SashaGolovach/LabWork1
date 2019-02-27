@@ -11801,11 +11801,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\stuff\\LabWork1Back\\LabWork1Back\\LabWork1Back.csproj",
+      "projectUniqueName": "C:\\LabWork1\\BackEnd\\LabWork1Back\\LabWork1Back.csproj",
       "projectName": "LabWork1Back",
-      "projectPath": "C:\\stuff\\LabWork1Back\\LabWork1Back\\LabWork1Back.csproj",
+      "projectPath": "C:\\LabWork1\\BackEnd\\LabWork1Back\\LabWork1Back.csproj",
       "packagesPath": "C:\\Users\\oleksandr.holovach\\.nuget\\packages\\",
-      "outputPath": "C:\\stuff\\LabWork1Back\\LabWork1Back\\obj\\",
+      "outputPath": "C:\\LabWork1\\BackEnd\\LabWork1Back\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
