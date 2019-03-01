@@ -7,42 +7,46 @@ using System.Threading.Tasks;
 
 namespace LabWork1Back
 {
-    [Serializable]
-    public class LocalDB
-    {
-        public List<Message> data = new List<Message>();
-    }
-
-    public class FileDBContext : IDBApiController
+    public class FileDBController : IDBApiController
     {
         readonly string path;
 
-        LocalDB localDB;
+        public List<Message> data = new List<Message>();
 
-        public FileDBContext(string localDBPath)
+        public FileDBController(string localDBPath)
         {
             path = localDBPath;
-
+            if(File.Exists(path))
+                LoadData();
         }
 
-        public List<Message> getAllMessages()
+        public IEnumerable<Message> getAllMessages()
         {
-            return localDB.data;
+            return data;
         }
 
-        public List<Message> getMessages(string userFromID, string userToID, MessageType type)
+        public IEnumerable<Message> getMessages(string userFromID, string userToID, MessageType type)
         {
-            throw new NotImplementedException();
+            var messagges = from m in data
+                where m.senderID == userFromID && m.receiverID == userToID && m.messageType == type
+                select m;
+            return messagges;
         }
 
-        public List<Message> getMessagges(string userId, DateTime timestamp)
+        public IEnumerable<Message> getMessagges(string userId, DateTime timestamp)
         {
-            throw new NotImplementedException();
+            var messagges = from m in data
+                where m.receiverID == userId && m.timeStamp > timestamp
+                select m;
+            return messagges;
         }
 
-        public List<Message> getMessaggesEndsWith(string pattern)
+        public IEnumerable<Message> getMessagges(string pattern)
         {
-            return null;
+            var messagesEndWithPattern = from m in data
+                where m.content.EndsWith(pattern)
+                select m;
+            return messagesEndWithPattern;
         }
 
         public void saveChanges()
@@ -51,13 +55,19 @@ namespace LabWork1Back
 
             using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
             {
-                formatter.Serialize(fs, localDB);
-
-                //implement params values for logger class
+                formatter.Serialize(fs, data);
+                //TODO: implement params values for logger class
                 Logger.Write(String.Format("DB on {0} has been serialized", path));
             }
+            
         }
 
-        public void LoadData() { }
+        public void LoadData() { 
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (FileStream fs = File.Open(path, FileMode.Open))
+            {
+                data = (List<Message>)formatter.Deserialize(fs);
+            }
+        }
     }
 }

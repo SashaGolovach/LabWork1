@@ -9,13 +9,13 @@ namespace LabWork1Back
     {
         void saveChanges();
 
-        List<Message> getAllMessages();
+        IEnumerable<Message> getAllMessages();
 
-        List<Message> getMessaggesEndsWith(string pattern);
+        IEnumerable<Message> getMessagges(string pattern);
 
-        List<Message> getMessagges(string userId, DateTime timestamp);
+        IEnumerable<Message> getMessagges(string userId, DateTime timestamp);
 
-        List<Message> getMessages(string userFromID, string userToID, MessageType type);
+        IEnumerable<Message> getMessages(string userFromID, string userToID, MessageType type);
 
         
     }
