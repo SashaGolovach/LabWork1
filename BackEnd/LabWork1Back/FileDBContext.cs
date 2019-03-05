@@ -25,18 +25,18 @@ namespace LabWork1Back
             return data;
         }
 
-        public IEnumerable<Message> getMessages(string userFromID, string userToID, MessageType type)
+        public IEnumerable<Message> getMessages(long userFromID, long userToID, MessageTypeEnum type)
         {
             var messagges = from m in data
-                where m.senderID == userFromID && m.receiverID == userToID && m.messageType == type
+                where m.SenderID == userFromID && m.ReceiverID == userToID && m.MessageType == type
                 select m;
             return messagges;
         }
 
-        public IEnumerable<Message> getMessagges(string userId, DateTime timestamp)
+        public IEnumerable<Message> getMessagges(long userId, DateTime timestamp)
         {
             var messagges = from m in data
-                where m.receiverID == userId && m.timeStamp > timestamp
+                where m.ReceiverID == userId && m.TimeStamp > timestamp
                 select m;
             return messagges;
         }
@@ -44,9 +44,14 @@ namespace LabWork1Back
         public IEnumerable<Message> getMessagges(string pattern)
         {
             var messagesEndWithPattern = from m in data
-                where m.content.EndsWith(pattern)
+                where m.Content.EndsWith(pattern)
                 select m;
             return messagesEndWithPattern;
+        }
+
+        public void addMessage(Message message)
+        {
+            data.Add(message);
         }
 
         public void saveChanges()

@@ -2,16 +2,16 @@
 
 namespace LabWork1Back
 {
-    public enum MessageType {News, Question, Answer, Invite, Comment };
+    public enum MessageTypeEnum {News, Question, Answer, Invite, Comment };
 
     [Serializable]
     public struct Message
     {
-        public System.DateTime timeStamp { get; }
-        public MessageType messageType { get; set; }
-        public string senderID { get; }
-        public string receiverID { get; }
-        public string content { get; set; }
-        public ushort spamScore { get; set; }
+        public DateTime TimeStamp { get; set; }
+        public MessageTypeEnum MessageType { get; set; }
+        public long SenderID { get; set; }
+        public long ReceiverID { get; set; }
+        public string Content { get; set; }
+        public ushort SpamScore { get; set; }
     }
 }

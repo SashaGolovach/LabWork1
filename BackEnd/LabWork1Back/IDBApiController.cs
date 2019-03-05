@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LabWork1Back
 {
-    interface IDBApiController
+    public interface IDBApiController
     {
         void saveChanges();
 
@@ -13,10 +13,11 @@ namespace LabWork1Back
 
         IEnumerable<Message> getMessagges(string pattern);
 
-        IEnumerable<Message> getMessagges(string userId, DateTime timestamp);
+        IEnumerable<Message> getMessagges(long userId, DateTime timestamp);
 
-        IEnumerable<Message> getMessages(string userFromID, string userToID, MessageType type);
+        IEnumerable<Message> getMessages(long userFromID, long userToID, MessageTypeEnum type);
 
-        
+        void addMessage(Message message);
+        void LoadData();
     }
 }
