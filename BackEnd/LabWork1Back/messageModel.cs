@@ -7,6 +7,7 @@ namespace LabWork1Back
     [Serializable]
     public struct Message
     {
+        public long ID { get; set; }
         public DateTime TimeStamp { get; set; }
         public MessageTypeEnum MessageType { get; set; }
         public long SenderID { get; set; }

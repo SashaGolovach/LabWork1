@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LabWork1Back;
@@ -21,15 +23,15 @@ namespace LabWork1Test
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
         
-        private IDBApiController _repository;
+        private IDBApiContext _repository;
         
         public UnitTest1()
         {
-            _repository = new FileDBController("local.db");          
+            _repository = new FileDBController("local.db.json", FileDBController.DBFileType.JsonTextFile);          
         }
         
         [TestMethod]
-        public void fileDbSaveAndLoadData()
+        public void FileDbSaveAndLoadData()
         {
             List<Message> data = new List<Message>();
             int N = 10_000;
@@ -44,12 +46,25 @@ namespace LabWork1Test
                     TimeStamp = DateTime.Now,
                     SpamScore = (ushort) random.Next(100)
                 };
-                _repository.addMessage(m);
+                _repository.AddMessage(m);
                 data.Add(m);
             }
-            _repository.saveChanges();
+            _repository.SaveChanges();
             _repository.LoadData();
-            Assert.Equals(_repository.getAllMessages(), data);
+            List<Message> actual = _repository.GetAllMessages().ToList();
+            for (int i = 0; i < 20; i++)
+            {
+                Console.WriteLine($"expected message[{i}]");
+                Log(data[i]);
+                Console.WriteLine($"actual message[{i}]");
+                Log(actual[i]);
+            }
+            Assert.IsTrue(actual.SequenceEqual(data));
+        }
+
+        void Log(Message m)
+        {
+            Console.WriteLine($"{m.SpamScore} {m.SenderID} {m.ReceiverID}");
         }
     }
 }

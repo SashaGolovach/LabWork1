@@ -13,7 +13,7 @@
           <e p="ValuesController.cs" t="Include" />
         </e>
         <e p="FileDBContext.cs" t="Include" />
-        <e p="IDBApiController.cs" t="Include" />
+        <e p="IDBApiContext.cs" t="Include" />
         <e p="LabWork1Back.csproj" t="IncludeRecursive" />
         <e p="Logger.cs" t="Include" />
         <e p="messageModel.cs" t="Include" />
@@ -47,7 +47,7 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2018.3/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2018.3/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_LabWork1Back.422894664.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2018.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2018.2/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_LabWork1Back.422894664.00" t="ExcludeRecursive" />
   </component>
 </project>
