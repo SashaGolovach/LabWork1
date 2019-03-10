@@ -2,25 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17316399-2cf8-47c5-80fd-ecece9f36e42" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LabWork1Back/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LabWork1Back/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LabWork1Back/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LabWork1Back/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabWork1Back/FileDBContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LabWork1Back/FileDBContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabWork1Back/IDBApiController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LabWork1Back/IDBApiContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabWork1Back/LabWork1Back.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LabWork1Back/LabWork1Back.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabWork1Back/messageModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LabWork1Back/messageModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabWork1Back/obj/Debug/netcoreapp2.1/LabWork1Back.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LabWork1Back/obj/Debug/netcoreapp2.1/LabWork1Back.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabWork1Back/obj/Debug/netcoreapp2.1/LabWork1Back.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LabWork1Back/obj/Debug/netcoreapp2.1/LabWork1Back.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabWork1Back/obj/Debug/netcoreapp2.1/LabWork1Back.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LabWork1Back/obj/Debug/netcoreapp2.1/LabWork1Back.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabWork1Back/obj/LabWork1Back.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LabWork1Back/obj/LabWork1Back.csproj.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabWork1Back/obj/LabWork1Back.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/LabWork1Back/obj/LabWork1Back.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabWork1Back/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/LabWork1Back/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabWork1Back/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/LabWork1Back/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabWork1Test/UnitTest1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LabWork1Test/UnitTest1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabWork1Test/obj/Debug/netcoreapp2.2/LabWork1Test.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LabWork1Test/obj/Debug/netcoreapp2.2/LabWork1Test.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabWork1Test/obj/Debug/netcoreapp2.2/LabWork1Test.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LabWork1Test/obj/Debug/netcoreapp2.2/LabWork1Test.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabWork1Test/obj/LabWork1Test.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LabWork1Test/obj/LabWork1Test.csproj.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabWork1Test/obj/LabWork1Test.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/LabWork1Test/obj/LabWork1Test.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabWork1Test/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/LabWork1Test/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/node_modules/bootstrap/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/node_modules/bootstrap/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/node_modules/bootstrap/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/node_modules/bootstrap/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/node_modules/jquery/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/node_modules/jquery/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/auto/auto.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/auto/auto.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/manual/manual.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/manual/manual.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/manual/manual.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/manual/manual.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/manual/manual.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/manual/manual.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +73,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LabWork1Back/Startup.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
+            <state>
               <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
               <folding>
                 <marker date="1551422508161" expanded="false" signature="6:402" ph="..." />
@@ -96,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LabWork1Back/FileDBContext.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="40" column="25" lean-forward="true" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+            <state relative-caret-position="253">
+              <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
               <folding>
                 <marker date="1552228317396" expanded="true" signature="6:190" ph="..." />
                 <marker date="1552228317396" expanded="true" signature="214:4177" ph="{...}" />
@@ -151,7 +144,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LabWork1Back/Logger.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
+            <state>
               <caret line="4" selection-start-line="4" selection-end-line="4" />
               <folding>
                 <marker date="1551422508161" expanded="false" signature="6:96" ph="..." />
@@ -163,7 +156,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LabWork1Back/messageModel.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
@@ -179,7 +172,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LabWork1Test/UnitTest1.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
+            <state>
               <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
               <folding>
                 <marker date="1552228136659" expanded="false" signature="6:285" ph="..." />
@@ -348,12 +341,12 @@
       <updated>1551422548635</updated>
       <workItem from="1551422551517" duration="2518000" />
       <workItem from="1551772321637" duration="5823000" />
-      <workItem from="1552220301920" duration="6550000" />
+      <workItem from="1552220301920" duration="6939000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14891000" />
+    <option name="totallyTimeSpent" value="15280000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -444,7 +437,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LabWork1Back/Logger.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
+        <state>
           <caret line="4" selection-start-line="4" selection-end-line="4" />
           <folding>
             <marker date="1551422508161" expanded="false" signature="6:96" ph="..." />
@@ -457,7 +450,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LabWork1Back/Startup.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
+        <state>
           <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
           <folding>
             <marker date="1551422508161" expanded="false" signature="6:402" ph="..." />
@@ -507,7 +500,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LabWork1Test/UnitTest1.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
+        <state>
           <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
           <folding>
             <marker date="1552228136659" expanded="false" signature="6:285" ph="..." />
@@ -524,21 +517,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LabWork1Back/messageModel.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-          <folding>
-            <marker date="1552221483867" expanded="true" signature="37:495" ph="{...}" />
-            <marker date="1552221483867" expanded="true" signature="161:493" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LabWork1Back/FileDBContext.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="40" column="25" lean-forward="true" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+        <state relative-caret-position="253">
+          <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
           <folding>
             <marker date="1552228317396" expanded="true" signature="6:190" ph="..." />
             <marker date="1552228317396" expanded="true" signature="214:4177" ph="{...}" />
@@ -567,6 +549,17 @@
             <marker date="1552228317396" expanded="true" signature="3727:3820" ph="{...}" />
             <marker date="1552228317396" expanded="true" signature="3863:4169" ph="{...}" />
             <marker date="1552228317396" expanded="true" signature="3897:4159" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LabWork1Back/messageModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+          <folding>
+            <marker date="1552221483867" expanded="true" signature="37:495" ph="{...}" />
+            <marker date="1552221483867" expanded="true" signature="161:493" ph="{...}" />
           </folding>
         </state>
       </provider>

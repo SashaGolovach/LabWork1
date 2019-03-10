@@ -1,65 +1,97 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="input-group mb-3">
-        <select class="custom-select" id="searchType">
-          <option selected>Message ends with...</option>
-          <option>Search by usernames</option>
-        </select>
-        <div class="input-group mb-3" *ng-if="searchType.selectedIndex == 0">
-          <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
-            aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">Button</button>
-          </div>
-        </div>
-        <div class="input-group" ng-if="searchType.selectedIndex == 1">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="">First and last name</span>
-          </div>
-          <input type="text" class="form-control">
-          <input type="text" class="form-control">
-        </div>
-        <div class="input-group-append">
-          <label class="input-group-text" for="inputGroupSelect02">Options</label>
-        </div>
-      </div>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="inputGroupSelect01">Options</label>
     </div>
-    <div class="col order-12">
-      Second, but last
+    <select class="custom-select" type="number" [(ngModel)]="searchType">
+      <option *ngFor="let option of searchOptions" [ngValue]="option.num">{{option.name}}</option>
+    </select>
+  </div>
+
+  <div class="input-group mb-3" *ngIf="searchType == 0">
+    <input type="text" class="form-control" placeholder="pattern">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button">Search</button>
     </div>
-    <div class="col order-1">
-      Third, but first
+  </div>
+
+  <div class="input-group mb-3" *ngIf="searchType == 1">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="first user ID">
+      <input type="text" class="form-control" placeholder="second user ID">
+      <select class="custom-select" type="number">
+        <option *ngFor="let option of messageType" [ngValue]="option.num">{{option.name}}</option>
+      </select>
+      <button class="btn btn-outline-secondary" type="button">Search</button>
     </div>
+  </div>
+
+  <div class="input-group mb-3" *ngIf="searchType == 2">
+    <div class="col-10 input-group">
+      <input class="form-control" type="datetime-local" value="2019-01-01T13:45:00">
+      <button class="btn btn-outline-secondary" type="button">Search</button>
+    </div>
+  </div>
+
+  <div id="table" class="table-editable">
+    <span class="table-add float-right mb-3 mr-2">
+      <button type="button" class="btn btn-success" (click)="add()">Add</button>
+    </span>
+    <table class="table table-bordered table-responsive-md table-striped text-center">
+      <tr>
+        <th class="text-center">ID</th>
+        <th class="text-center">From</th>
+        <th class="text-center">To Name</th>
+        <th class="text-center">Content</th>
+        <th class="text-center">Spam score</th>
+        <th class="text-center">Message type</th>
+        <th class="text-center">Time</th>
+        <th class="text-center">Remove</th>
+      </tr>
+      <tr *ngFor="let person of personList; let id = index">
+        <td>
+          <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)"
+            contenteditable="true">{{person.name}}</span>
+        </td>
+        <td>
+          <span contenteditable="true" (keyup)="changeValue(id, 'age', $event)"
+            (blur)="updateList(id, 'age', $event)">{{person.age}}</span>
+        </td>
+        <td>
+          <span contenteditable="true" (keyup)="changeValue(id, 'companyName', $event)"
+            (blur)="updateList(id, 'companyName', $event)">{{person.companyName}}</span>
+        </td>
+        <td>
+          <span contenteditable="true" (keyup)="changeValue(id, 'country', $event)"
+            (blur)="updateList(id, 'country', $event)">{{person.country}}</span>
+        </td>
+        <td>
+          <span contenteditable="true" (keyup)="changeValue(id, 'city', $event)"
+            (blur)="updateList(id, 'city', $event)">{{person.city}}</span>
+        </td>
+        <td>
+          <span class="table-up">
+            <a class="indigo-text">
+              <mdb-icon fas icon="long-arrow-alt-up"></mdb-icon>
+            </a>
+          </span>
+          <span class="table-down">
+            <a class="indigo-text">
+              <mdb-icon fas icon="long-arrow-alt-down"></mdb-icon>
+            </a>
+          </span>
+        </td>
+        <td>
+
+        </td>
+        <td>
+          <span class="table-remove">
+            <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0"
+              (click)="remove(id)">Remove</button>
+          </span>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
