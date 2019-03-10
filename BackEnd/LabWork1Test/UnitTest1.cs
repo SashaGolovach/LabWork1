@@ -27,7 +27,7 @@ namespace LabWork1Test
         
         public UnitTest1()
         {
-            _repository = new FileDBController("local.db.json", FileDBController.DBFileType.JsonTextFile);          
+            _repository = new FileDBContext("local.db.json", DBFileType.JsonTextFile);          
         }
         
         [TestMethod]

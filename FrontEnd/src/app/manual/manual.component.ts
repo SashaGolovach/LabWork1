@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-manual',
@@ -62,9 +63,14 @@ export class ManualComponent implements OnInit {
     this.editField = event.target.textContent;
   }
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+
+  }
 
   ngOnInit() {
+    this.http.get('api/messages').subscribe(data => {
+      console.log(data);
+    });
   }
 
 }

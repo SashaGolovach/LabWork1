@@ -10,11 +10,12 @@
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
-          <e p="ValuesController.cs" t="Include" />
+          <e p="MessagesController.cs" t="Include" />
         </e>
         <e p="FileDBContext.cs" t="Include" />
         <e p="IDBApiContext.cs" t="Include" />
         <e p="LabWork1Back.csproj" t="IncludeRecursive" />
+        <e p="local.db" t="Include" />
         <e p="Logger.cs" t="Include" />
         <e p="messageModel.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">

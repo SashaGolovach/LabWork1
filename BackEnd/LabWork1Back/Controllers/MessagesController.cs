@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Razor.Language.Intermediate;
 
 namespace LabWork1Back.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/messages")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class MessagesController : ControllerBase
     {
-        // GET api/values
+       FileDBContext _context = new FileDBContext("local.db", DBFileType.BinaryFile);
+      
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<Message>> Get()
         {
-            return new string[] { "value1", "value2" };
+          return new ActionResult<IEnumerable<Message>>(_context.GetAllMessages());
         }
 
         // GET api/values/5

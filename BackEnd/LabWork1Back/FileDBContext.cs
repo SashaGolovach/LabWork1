@@ -8,25 +8,26 @@ using Newtonsoft.Json;
 
 namespace LabWork1Back
 {
-    public class FileDBController : IDBApiContext
+    public enum DBFileType
     {
-        public enum DBFileType
-        {
-            JsonTextFile,
-            BinaryFile
-        }
+      JsonTextFile,
+      BinaryFile
+    }
+  
+    public class FileDBContext : IDBApiContext
+    {
         
         public readonly string path;
         public readonly DBFileType dbFileType;
 
         public List<Message> data = new List<Message>();
 
-        public FileDBController(string localDBPath, DBFileType t)
+        public FileDBContext(string localDBPath, DBFileType t)
         {
             path = localDBPath;
             dbFileType = t;
-            //if(File.Exists(path))
-            //LoadData();
+            if(File.Exists(path))
+              LoadData();
         }
 
         public IEnumerable<Message> GetAllMessages()
