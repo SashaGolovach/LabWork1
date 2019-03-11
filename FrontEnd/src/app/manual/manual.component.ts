@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-manual',
@@ -24,40 +25,26 @@ export class ManualComponent implements OnInit {
     { num: 3, name: "All messages" }
   ];
 
+  messages: Array<Message> = [];
   editField: string;
-  personList: Array<any> = [
-    { id: 1, name: 'Aurelia Vega', age: 30, companyName: 'Deepends', country: 'Spain', city: 'Madrid' },
-    { id: 2, name: 'Guerra Cortez', age: 45, companyName: 'Insectus', country: 'USA', city: 'San Francisco' },
-    { id: 3, name: 'Guadalupe House', age: 26, companyName: 'Isotronic', country: 'Germany', city: 'Frankfurt am Main' },
-    { id: 4, name: 'Aurelia Vega', age: 30, companyName: 'Deepends', country: 'Spain', city: 'Madrid' },
-    { id: 5, name: 'Elisa Gallagher', age: 31, companyName: 'Portica', country: 'United Kingdom', city: 'London' },
-  ];
-
-  awaitingPersonList: Array<any> = [
-    { id: 6, name: 'George Vega', age: 28, companyName: 'Classical', country: 'Russia', city: 'Moscow' },
-    { id: 7, name: 'Mike Low', age: 22, companyName: 'Lou', country: 'USA', city: 'Los Angeles' },
-    { id: 8, name: 'John Derp', age: 36, companyName: 'Derping', country: 'USA', city: 'Chicago' },
-    { id: 9, name: 'Anastasia John', age: 21, companyName: 'Ajo', country: 'Brazil', city: 'Rio' },
-    { id: 10, name: 'John Maklowicz', age: 36, companyName: 'Mako', country: 'Poland', city: 'Bialystok' },
-  ];
 
   updateList(id: number, property: string, event: any) {
     const editField = event.target.textContent;
-    this.personList[id][property] = editField;
+    this.messages[id][property] = editField;
+    this.http.post('api/messages/edit/', "").subscribe(response => {});
   }
 
   remove(id: any) {
-    this.awaitingPersonList.push(this.personList[id]);
-    this.personList.splice(id, 1);
+    this.messages.splice(id, 1);
+    this.http.get('api/messages/delete/' + id).subscribe(response => {});
   }
 
   add() {
-    if (this.awaitingPersonList.length > 0) {
-      const person = this.awaitingPersonList[0];
-      this.personList.splice(0, 0, person);
-      this.awaitingPersonList.splice(0, 1);
+      const m = new Message();
+      this.messages.splice(0, 0, m);
+      this.http.post('api/messages/add/', "").subscribe(response => {});
+      console.log(m);
     }
-  }
 
   changeValue(id: number, property: string, event: any) {
     this.editField = event.target.textContent;
@@ -68,9 +55,22 @@ export class ManualComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get('api/messages').subscribe(data => {
-      console.log(data);
+    this.http.get<Array<Message>>('api/messages').subscribe(data => {
+      this.messages = data;
     });
   }
 
+}
+
+export class Message{
+  public id: number;
+  public timeStamp: Date;
+  public messageType :string;
+  public senderID: number;
+  public receiverID: number;
+  public content : string;
+  public spamScore: number;
+  constructor() 
+    {
+    }
 }

@@ -15,3 +15,9 @@
 /Users/sashagolovach/Documents/LabWork1/BackEnd/LabWork1Test/obj/Debug/netcoreapp2.2/LabWork1Test.csproj.CopyComplete
 /Users/sashagolovach/Documents/LabWork1/BackEnd/LabWork1Test/obj/Debug/netcoreapp2.2/LabWork1Test.dll
 /Users/sashagolovach/Documents/LabWork1/BackEnd/LabWork1Test/obj/Debug/netcoreapp2.2/LabWork1Test.pdb
+C:\LabWork1\BackEnd\LabWork1Test\obj\Debug\netcoreapp2.2\LabWork1Test.csprojAssemblyReference.cache
+C:\LabWork1\BackEnd\LabWork1Test\obj\Debug\netcoreapp2.2\LabWork1Test.csproj.CoreCompileInputs.cache
+C:\LabWork1\BackEnd\LabWork1Test\obj\Debug\netcoreapp2.2\LabWork1Test.AssemblyInfoInputs.cache
+C:\LabWork1\BackEnd\LabWork1Test\obj\Debug\netcoreapp2.2\LabWork1Test.AssemblyInfo.cs
+C:\LabWork1\BackEnd\LabWork1Test\obj\Debug\netcoreapp2.2\LabWork1Test.dll
+C:\LabWork1\BackEnd\LabWork1Test\obj\Debug\netcoreapp2.2\LabWork1Test.pdb

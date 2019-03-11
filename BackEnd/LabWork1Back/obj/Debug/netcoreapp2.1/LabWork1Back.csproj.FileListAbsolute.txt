@@ -12,3 +12,17 @@
 /Users/sashagolovach/Documents/LabWork1/BackEnd/LabWork1Back/obj/Debug/netcoreapp2.1/LabWork1Back.RazorTargetAssemblyInfo.cache
 /Users/sashagolovach/Documents/LabWork1/BackEnd/LabWork1Back/obj/Debug/netcoreapp2.1/LabWork1Back.dll
 /Users/sashagolovach/Documents/LabWork1/BackEnd/LabWork1Back/obj/Debug/netcoreapp2.1/LabWork1Back.pdb
+C:\LabWork1\BackEnd\LabWork1Back\bin\Debug\netcoreapp2.1\LabWork1Back.deps.json
+C:\LabWork1\BackEnd\LabWork1Back\bin\Debug\netcoreapp2.1\LabWork1Back.runtimeconfig.json
+C:\LabWork1\BackEnd\LabWork1Back\bin\Debug\netcoreapp2.1\LabWork1Back.runtimeconfig.dev.json
+C:\LabWork1\BackEnd\LabWork1Back\bin\Debug\netcoreapp2.1\LabWork1Back.dll
+C:\LabWork1\BackEnd\LabWork1Back\bin\Debug\netcoreapp2.1\LabWork1Back.pdb
+C:\LabWork1\BackEnd\LabWork1Back\obj\Debug\netcoreapp2.1\LabWork1Back.csprojAssemblyReference.cache
+C:\LabWork1\BackEnd\LabWork1Back\obj\Debug\netcoreapp2.1\LabWork1Back.csproj.CoreCompileInputs.cache
+C:\LabWork1\BackEnd\LabWork1Back\obj\Debug\netcoreapp2.1\LabWork1Back.RazorAssemblyInfo.cache
+C:\LabWork1\BackEnd\LabWork1Back\obj\Debug\netcoreapp2.1\LabWork1Back.RazorAssemblyInfo.cs
+C:\LabWork1\BackEnd\LabWork1Back\obj\Debug\netcoreapp2.1\LabWork1Back.AssemblyInfoInputs.cache
+C:\LabWork1\BackEnd\LabWork1Back\obj\Debug\netcoreapp2.1\LabWork1Back.AssemblyInfo.cs
+C:\LabWork1\BackEnd\LabWork1Back\obj\Debug\netcoreapp2.1\LabWork1Back.RazorTargetAssemblyInfo.cache
+C:\LabWork1\BackEnd\LabWork1Back\obj\Debug\netcoreapp2.1\LabWork1Back.dll
+C:\LabWork1\BackEnd\LabWork1Back\obj\Debug\netcoreapp2.1\LabWork1Back.pdb
