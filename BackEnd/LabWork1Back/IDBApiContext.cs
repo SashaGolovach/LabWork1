@@ -5,24 +5,27 @@ using System.Threading.Tasks;
 
 namespace LabWork1Back
 {
-    public interface IDBApiContext
-    {
-        void SaveChanges();
-        
-        void LoadData();
+  public interface IDBApiContext
+  {
+    void SaveChanges();
 
-        IEnumerable<Message> GetAllMessages();
+    void LoadData();
 
-        IEnumerable<Message> GetMessages(string pattern);
+    IEnumerable<Message> GetAllMessages();
 
-        IEnumerable<Message> GetMessages(long userId, DateTime timestamp);
+    IEnumerable<Message> GetMessages(string pattern);
 
-        IEnumerable<Message> GetMessages(long userFromID, long userToID, MessageTypeEnum type);
+    IEnumerable<Message> GetMessages(long userId, DateTime timestamp);
 
-        void AddMessage(Message message);
+    IEnumerable<Message> GetMessages(long userFromID, long userToID, MessageTypeEnum type);
 
-        void DeleteMessage(long ID);
+    void AddMessage(Message message);
 
-        void EditMessage(Message m);
-    }
+    void DeleteMessage(long ID);
+
+    void EditMessage(Message m);
+
+    bool MessageExist(long id);
+
+  }
 }

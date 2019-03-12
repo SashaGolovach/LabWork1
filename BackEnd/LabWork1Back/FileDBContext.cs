@@ -76,7 +76,15 @@ namespace LabWork1Back
             }
         }
 
-        public void DeleteMessage(long ID)
+      public bool MessageExist(long id)
+      {
+        for (int i = 0; i < data.Count; i++)
+          if (data[i].ID == id)
+            return true;
+        return false;
+      }
+
+      public void DeleteMessage(long ID)
         {
             data.Remove(data.Single(m => m.ID == ID));
         }

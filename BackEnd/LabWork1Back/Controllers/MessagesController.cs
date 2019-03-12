@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Razor.Language.Intermediate;
 
 namespace LabWork1Back.Controllers
 {
@@ -20,16 +21,27 @@ namespace LabWork1Back.Controllers
     }
 
     [HttpGet("delete/{id}")]
-    public void DeleteMessage(int id)
+    public IActionResult DeleteMessage(int id)
     {
+      if (!_context.MessageExist(id))
+        return NotFound("Message with such ID does not exist");
       _context.DeleteMessage(id);
       _context.SaveChanges();
+      return Ok();
     }
 
     [HttpPost("add/")]
     public void AddMessage(Message m)
     {
       _context.AddMessage(m);
+      _context.SaveChanges();
+    }
+    
+    [HttpPost("edit/")]
+    public void EditMessage(Message m)
+    {
+      _context.EditMessage(m);
+      _context.SaveChanges();
     }
 
     // POST api/values

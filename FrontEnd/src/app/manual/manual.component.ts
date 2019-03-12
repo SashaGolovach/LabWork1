@@ -31,20 +31,22 @@ export class ManualComponent implements OnInit {
   updateList(id: number, property: string, event: any) {
     const editField = event.target.textContent;
     this.messages[id][property] = editField;
-    this.http.post('api/messages/edit/', "").subscribe(response => {});
+    this.http.post('api/messages/edit/', this.messages[id]).subscribe(response => { });
   }
 
   remove(id: any) {
-    this.messages.splice(id, 1);
-    this.http.get('api/messages/delete/' + id).subscribe(response => {});
+    this.http.get<Response>('api/messages/delete/' + id).subscribe(response => {
+      alert(response.status);
+      this.messages.splice(id, 1);
+    });
   }
 
   add() {
-      const m = new Message();
-      this.messages.splice(0, 0, m);
-      this.http.post('api/messages/add/', "").subscribe(response => {});
-      console.log(m);
-    }
+    const m = new Message();
+    this.messages.splice(0, 0, m);
+    this.http.post('api/messages/add/', m).subscribe(response => { });
+    console.log(m);
+  }
 
   changeValue(id: number, property: string, event: any) {
     this.editField = event.target.textContent;
@@ -62,15 +64,21 @@ export class ManualComponent implements OnInit {
 
 }
 
-export class Message{
+export class Message {
   public id: number;
   public timeStamp: Date;
-  public messageType :string;
+  public messageType: string;
   public senderID: number;
   public receiverID: number;
-  public content : string;
+  public content: string;
   public spamScore: number;
-  constructor() 
-    {
-    }
+  constructor() {
+    this.id = 111;
+    this.content = "hello";
+    this.messageType = "3";
+    this.receiverID = 123;
+    this.senderID = 456;
+    this.spamScore = 32;
+    this.timeStamp = new Date();
+  }
 }
