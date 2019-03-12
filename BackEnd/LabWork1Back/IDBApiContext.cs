@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,11 +15,11 @@ namespace LabWork1Back
 
     IEnumerable<Message> GetMessages(string pattern);
 
-    IEnumerable<Message> GetMessages(long userId, DateTime timestamp);
+    IEnumerable<Message> GetMessages(DateTime timestamp);
 
     IEnumerable<Message> GetMessages(long userFromID, long userToID, MessageTypeEnum type);
 
-    void AddMessage(Message message);
+    Message AddMessage();
 
     void DeleteMessage(long ID);
 

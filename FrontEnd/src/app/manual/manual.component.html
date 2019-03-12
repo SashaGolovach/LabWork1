@@ -4,33 +4,33 @@
     <div class="input-group-prepend">
       <label class="input-group-text" for="inputGroupSelect01">Options</label>
     </div>
-    <select class="custom-select" type="number" [(ngModel)]="searchType">
+    <select class="custom-select" type="number" [(ngModel)]="searchType" (change)="selectOnChange()">
       <option *ngFor="let option of searchOptions" [ngValue]="option.num">{{option.name}}</option>
     </select>
   </div>
 
   <div class="input-group mb-3" *ngIf="searchType == 0">
-    <input type="text" class="form-control" placeholder="pattern">
+    <input type="text" class="form-control" placeholder="pattern" id="patternInput">
     <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button">Search</button>
+      <button class="btn btn-outline-secondary" type="button" (click)="getMessagesEndWithClick()">Search</button>
     </div>
   </div>
 
   <div class="input-group mb-3" *ngIf="searchType == 1">
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="first user ID">
-      <input type="text" class="form-control" placeholder="second user ID">
-      <select class="custom-select" type="number">
-        <option *ngFor="let option of messageType" [ngValue]="option.num">{{option.name}}</option>
+      <input type="text" class="form-control" placeholder="first user ID" id="firstUserInput">
+      <input type="text" class="form-control" placeholder="second user ID" id="secondUserInput">
+      <select class="custom-select" type="number" [(ngModel)]="messageType">
+        <option *ngFor="let option of messageTypes" [ngValue]="option.num">{{option.name}}</option>
       </select>
-      <button class="btn btn-outline-secondary" type="button">Search</button>
+      <button class="btn btn-outline-secondary" type="button" (click)="getMessagesWithCertaingTypeClick()">Search</button>
     </div>
   </div>
 
   <div class="input-group mb-3" *ngIf="searchType == 2">
     <div class="col-10 input-group">
-      <input class="form-control" type="datetime-local" value="2019-01-01T13:45:00">
-      <button class="btn btn-outline-secondary" type="button">Search</button>
+      <input class="form-control" type="datetime-local" value="2019-01-01T13:45:00" id="timeStampInput">
+      <button class="btn btn-outline-secondary" type="button" (click)="getMessagesAfterTimeStampClick()">Search</button>
     </div>
   </div>
 
@@ -51,32 +51,31 @@
       </tr>
       <tr *ngFor="let message of messages; let id = index">
         <td>
-          <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)"
-            contenteditable="true">{{message.id}}</span>
+          <span contenteditable="false">{{message.id}}</span>
         </td>
         <td>
-          <span contenteditable="true" (keyup)="changeValue(id, 'age', $event)"
-            (blur)="updateList(id, 'age', $event)">{{message.senderID}}</span>
+          <span contenteditable="true" (keyup)="changeValue(id, 'senderID', $event)"
+            (blur)="updateList(id, 'senderID', $event)">{{message.senderID}}</span>
         </td>
         <td>
-          <span contenteditable="true" (keyup)="changeValue(id, 'companyName', $event)"
-            (blur)="updateList(id, 'companyName', $event)">{{message.receiverID}}</span>
+          <span contenteditable="true" (keyup)="changeValue(id, 'receiverID', $event)"
+            (blur)="updateList(id, 'receiverID', $event)">{{message.receiverID}}</span>
         </td>
         <td>
-          <span contenteditable="true" (keyup)="changeValue(id, 'country', $event)"
-            (blur)="updateList(id, 'country', $event)">{{message.content}}</span>
+          <span contenteditable="true" (keyup)="changeValue(id, 'content', $event)"
+            (blur)="updateList(id, 'content', $event)">{{message.content}}</span>
         </td>
         <td>
-          <span contenteditable="true" (keyup)="changeValue(id, 'city', $event)"
-            (blur)="updateList(id, 'city', $event)">{{message.spamScore}}</span>
+          <span contenteditable="true" (keyup)="changeValue(id, 'spamScore', $event)"
+            (blur)="updateList(id, 'spamScore', $event)">{{message.spamScore}}</span>
         </td>
         <td>
-          <span contenteditable="true" (keyup)="changeValue(id, 'city', $event)"
-            (blur)="updateList(id, 'city', $event)">{{message.messageType}}</span>
+          <span contenteditable="true" (keyup)="changeValue(id, 'messageType', $event)"
+            (blur)="updateList(id, 'messageType', $event)">{{message.messageType}}</span>
         </td>
         <td>
-          <span contenteditable="true" (keyup)="changeValue(id, 'city', $event)"
-            (blur)="updateList(id, 'city', $event)">{{message.timeStamp | date: 'dd.MM.yyyy HH:mm'}}</span>
+          <span contenteditable="true" (keyup)="changeValue(id, 'timeStamp', $event)"
+            (blur)="updateList(id, 'timeStamp', $event)">{{message.timeStamp | date: 'dd.MM.yyyy HH:mm'}}</span>
         </td>
         <td>
           <span class="table-remove">

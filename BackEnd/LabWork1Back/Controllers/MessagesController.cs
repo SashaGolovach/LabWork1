@@ -12,7 +12,7 @@ namespace LabWork1Back.Controllers
   [ApiController]
   public class MessagesController : ControllerBase
   {
-    FileDBContext _context = new FileDBContext("local.db", DBFileType.BinaryFile);
+    IDBApiContext _context = new FileDBContext("local.db", DBFileType.BinaryFile);
 
     [HttpGet]
     public ActionResult<IEnumerable<Message>> GetAllMessages()
@@ -30,36 +30,46 @@ namespace LabWork1Back.Controllers
       return Ok();
     }
 
-    [HttpPost("add/")]
-    public void AddMessage(Message m)
+    [HttpGet("add/")]
+    public ActionResult<Message> AddMessage()
     {
-      _context.AddMessage(m);
+      var m = _context.AddMessage();
       _context.SaveChanges();
+      return m;
     }
-    
-    [HttpPost("edit/")]
-    public void EditMessage(Message m)
+
+    [HttpGet("ends/")]
+    public ActionResult<IEnumerable<Message>> GetMessagesEndWith([FromHeader] string pattern)
     {
+      if (String.IsNullOrEmpty(pattern))
+        return null;
+
+      return new ActionResult<IEnumerable<Message>>(_context.GetMessages(pattern));
+    }
+
+    [HttpPost("edit/")]
+    public IActionResult EditMessage(Message m)
+    {
+      //if (!m.isValid())
+        //return StatusCode(400, "Model is not valid");
       _context.EditMessage(m);
       _context.SaveChanges();
+      return Ok();
     }
 
-    // POST api/values
-    [HttpPost]
-    public void Post([FromBody] string value)
+    [HttpGet("after/")]
+    public ActionResult<IEnumerable<Message>> getMessagesAfterTimeStamp([FromHeader] DateTime timeStamp)
     {
+      if (timeStamp == null)
+        return null;
+
+      return new ActionResult<IEnumerable<Message>>(_context.GetMessages(timeStamp));
     }
 
-    // PUT api/values/5
-    [HttpPut("{id}")]
-    public void Put(int id, [FromBody] string value)
+    [HttpGet("find/")]
+    public ActionResult<IEnumerable<Message>> getMessagesWithCertaingType([FromHeader] long fromUserID, [FromHeader] long toUserID, [FromHeader] int messageType)
     {
-    }
-
-    // DELETE api/values/5
-    [HttpDelete("{id}")]
-    public void Delete(int id)
-    {
+      return new ActionResult<IEnumerable<Message>>(_context.GetMessages(fromUserID, toUserID, (MessageTypeEnum)messageType));
     }
   }
 }
