@@ -71,7 +71,7 @@ export class ManualComponent implements OnInit {
   }
 
   remove(id: any) {
-    this.http.get('api/messages/delete/' + this.messages[id].id).map((response: Response) => {
+    this.http.delete('api/messages/' + this.messages[id].id).map((response: Response) => {
       this.messages.splice(id, 1);
     }).subscribe(
       data => {},

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -81,6 +82,11 @@ namespace LabWork1Back
       };
       data.Insert(0, message);
       return message;
+    }
+
+    public void AddMessage(Message m)
+    {
+      data.Insert(0, m);
     }
 
     public void EditMessage(Message m)

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -20,7 +21,7 @@ namespace LabWork1Back.Controllers
       return new ActionResult<IEnumerable<Message>>(_context.GetAllMessages());
     }
 
-    [HttpGet("delete/{id}")]
+    [HttpDelete("{id}")]
     public IActionResult DeleteMessage(int id)
     {
       if (!_context.MessageExist(id))
@@ -50,8 +51,6 @@ namespace LabWork1Back.Controllers
     [HttpPost("edit/")]
     public IActionResult EditMessage(Message m)
     {
-      //if (!m.isValid())
-        //return StatusCode(400, "Model is not valid");
       _context.EditMessage(m);
       _context.SaveChanges();
       return Ok();
@@ -71,5 +70,12 @@ namespace LabWork1Back.Controllers
     {
       return new ActionResult<IEnumerable<Message>>(_context.GetMessages(fromUserID, toUserID, (MessageTypeEnum)messageType));
     }
+
+    [HttpGet("benchmark/")]
+    public ActionResult<IEnumerable<BenchmarkResult>> GetBenchmarkResults()
+    {
+      return new ActionResult<IEnumerable<BenchmarkResult>>(Benchmark.Run());
+    }
+
   }
 }

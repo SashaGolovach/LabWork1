@@ -25,7 +25,10 @@ namespace LabWork1Back
 
     void EditMessage(Message m);
 
+    void AddMessage(Message m);
+
     bool MessageExist(long id);
 
   }
+
 }

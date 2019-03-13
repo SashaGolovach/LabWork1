@@ -17,8 +17,8 @@ namespace LabWork1Test
         
         public string RandomString()
         {
-            int length = random.Next(64);
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            int length = random.Next(1000);
+            const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }

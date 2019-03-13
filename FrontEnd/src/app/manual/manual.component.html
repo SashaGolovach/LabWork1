@@ -128,7 +128,7 @@
       </div>
 
       <div class="modal-footer d-flex justify-content-center">
-        <button mdbBtn class="waves-light btn-success" mdbWavesEffect (click)="updateList()" [disabled]="!IsFormValid()">Save</button>
+        <button mdbBtn class="waves-light btn-success" mdbWavesEffect (click)="updateList();frame.hide();" [disabled]="!IsFormValid()">Save</button>
       </div>
     </div>
   </div>
