@@ -72,7 +72,12 @@ namespace LabWork1Back
       var message = new Message()
       {
         ID = GenerateID(),
-        TimeStamp = DateTime.Now
+        TimeStamp = DateTime.Now,
+        SenderID = 1,
+        ReceiverID = 2,
+        Content = "text",
+        SpamScore = 10,
+        MessageType = MessageTypeEnum.News
       };
       data.Insert(0, message);
       return message;

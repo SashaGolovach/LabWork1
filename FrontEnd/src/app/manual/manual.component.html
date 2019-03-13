@@ -47,6 +47,7 @@
         <th class="text-center">Spam score</th>
         <th class="text-center">Message type</th>
         <th class="text-center">Time</th>
+        <th class="text-center">Edit</th>
         <th class="text-center">Remove</th>
       </tr>
       <tr *ngFor="let message of messages; let id = index">
@@ -54,28 +55,27 @@
           <span contenteditable="false">{{message.id}}</span>
         </td>
         <td>
-          <span contenteditable="true" (keyup)="changeValue(id, 'senderID', $event)"
-            (blur)="updateList(id, 'senderID', $event)">{{message.senderID}}</span>
+          <span>{{message.senderID}}</span>
         </td>
         <td>
-          <span contenteditable="true" (keyup)="changeValue(id, 'receiverID', $event)"
-            (blur)="updateList(id, 'receiverID', $event)">{{message.receiverID}}</span>
+          <span>{{message.receiverID}}</span>
         </td>
         <td>
-          <span contenteditable="true" (keyup)="changeValue(id, 'content', $event)"
-            (blur)="updateList(id, 'content', $event)">{{message.content}}</span>
+          <span>{{message.content}}</span>
         </td>
         <td>
-          <span contenteditable="true" (keyup)="changeValue(id, 'spamScore', $event)"
-            (blur)="updateList(id, 'spamScore', $event)">{{message.spamScore}}</span>
+          <span>{{message.spamScore}}</span>
         </td>
         <td>
-          <span contenteditable="true" (keyup)="changeValue(id, 'messageType', $event)"
-            (blur)="updateList(id, 'messageType', $event)">{{message.messageType}}</span>
+          <span>{{messageTypes[message.messageType].name}}</span>
         </td>
         <td>
-          <span contenteditable="true" (keyup)="changeValue(id, 'timeStamp', $event)"
-            (blur)="updateList(id, 'timeStamp', $event)">{{message.timeStamp | date: 'dd.MM.yyyy HH:mm'}}</span>
+          <span>{{message.timeStamp | date: 'dd.MM.yyyy HH:mm'}}</span>
+        </td>
+        <td>
+          <span class="table-remove">
+            <button type="button" class="btn btn-info" (click)="ShowModal(id); frame.show();">Edit</button>
+          </span>
         </td>
         <td>
           <span class="table-remove">
@@ -85,5 +85,51 @@
         </td>
       </tr>
     </table>
+  </div>
+</div>
+
+<div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Edit message</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+          <i class="fas fa-envelope prefix grey-text mb-1">Message type</i>
+        <div class="md-form mb-4">
+            <select class="custom-select" type="number" [(ngModel)]="typeForm" id="test">
+                <option *ngFor="let option of messageTypes">{{option.name}}</option>
+            </select>
+        </div>
+        <i class="fas fa-envelope prefix grey-text mb-1">Time</i>
+        <div class="md-form mb-4">
+          <input class="form-control" type="datetime-local" mdbInput [(ngModel)]="timeForm">
+        </div>
+        <i class="fas fa-envelope prefix grey-text mb-1">From user ID</i>
+        <div class="md-form mb-4">
+            <input type="number" class="form-control" placeholder="From user ID" mdbInput [(ngModel)]="fromUserForm">
+        </div>
+        <i class="fas fa-envelope prefix grey-text mb-1">To user ID</i>
+        <div class="md-form mb-4">
+            <input type="number" class="form-control" placeholder="To user ID" mdbInput [(ngModel)]="toUserForm">
+        </div>
+        <i class="fas fa-envelope prefix grey-text mb-1">Message content</i>
+        <div class="md-form mb-4">
+            <input type="text" class="form-control" placeholder="Message content" mdbInput [(ngModel)]="contentForm">
+        </div>
+        <i class="fas fa-envelope prefix grey-text mb-1">Spam score</i>
+        <div class="md-form mb-4">
+            <input type="number" class="form-control" placeholder="Spam score" mdbInput [(ngModel)]="spamScoreForm">
+        </div>
+      </div>
+
+      <div class="modal-footer d-flex justify-content-center">
+        <button mdbBtn class="waves-light btn-success" mdbWavesEffect (click)="updateList()" [disabled]="!IsFormValid()">Save</button>
+      </div>
+    </div>
   </div>
 </div>

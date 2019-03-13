@@ -4,8 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { forEach } from '@angular/router/src/utils/collection';
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch';
-import { stringify } from '@angular/core/src/util';
-import { PatternValidator } from '@angular/forms';
+import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-manual',
@@ -14,7 +13,7 @@ import { PatternValidator } from '@angular/forms';
 })
 
 export class ManualComponent implements OnInit {
-
+  messageID:number = 0;
   searchType: number = 3;
   searchOptions: Array<Object> = [
     { num: 0, name: "Message ends with..."},
@@ -32,22 +31,43 @@ export class ManualComponent implements OnInit {
   ];
 
   messages: Array<Message> = [];
-  editField: string;
 
-  updateList(id: number, property: string, event: any) {
-    const editField = event.target.textContent;
-    let data = this.messages[id][property];
-    this.messages[id][property] = editField;
-    this.http.post('api/messages/edit/', this.messages[id]).subscribe(response => {
-    },
-      err => {
-        this.messages[id][property] = data;
-        alert("Could not edit message, please check the input data is correct.");
-      });
+  fromUserForm:number;
+  toUserForm:number;
+  spamScoreForm:number;
+  contentForm:string;
+  timeForm:string;
+  typeForm: MessageTypeEnum;
+
+  ShowModal(id:number){
+    this.messageID = id;
+    this.fromUserForm = this.messages[id].senderID;
+    this.toUserForm = this.messages[id].receiverID;
+    this.contentForm = this.messages[id].content;
+    this.spamScoreForm = this.messages[id].spamScore;
+    this.typeForm = this.messages[id].messageType;
+    this.timeForm = this.datepipe.transform(this.messages[id].timeStamp, 'yyyy-MM-ddThh:mm', );
+    (<HTMLSelectElement>document.getElementById('test')).selectedIndex = this.typeForm + 1;
+    console.log(this.typeForm);
   }
 
-  changeValue(id: number, property: string, event: any) {
-    this.editField = event.target.textContent;
+  updateList() {
+    this.messages[this.messageID] = {
+      id: this.messages[this.messageID].id,
+      senderID: this.fromUserForm,
+      receiverID: this.toUserForm,
+      content: this.contentForm,
+      spamScore: this.spamScoreForm,
+      messageType: this.typeForm,
+      timeStamp: new Date(this.timeForm),
+    };
+    this.http.post('api/messages/edit/', this.messages[this.messageID]).subscribe(response => {
+    },
+      err => {});
+  }
+
+  IsFormValid():boolean{
+    return this.spamScoreForm >= 0 && this.spamScoreForm <= 100;
   }
 
   remove(id: any) {
@@ -119,8 +139,7 @@ export class ManualComponent implements OnInit {
     });
   }
 
-  constructor(private http: HttpClient) {
-
+  constructor(private http: HttpClient, public datepipe: DatePipe) {
   }
 
   ngOnInit() {
