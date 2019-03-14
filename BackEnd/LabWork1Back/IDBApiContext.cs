@@ -21,6 +21,8 @@ namespace LabWork1Back
 
     Message AddMessage();
 
+    Message AddRandomMessage();
+
     void DeleteMessage(long ID);
 
     void EditMessage(Message m);
@@ -28,7 +30,6 @@ namespace LabWork1Back
     void AddMessage(Message m);
 
     bool MessageExist(long id);
-
   }
 
 }

@@ -13,8 +13,8 @@ namespace LabWork1Back
 
     public static string RandomString()
     {
-      int length = random.Next(1000);
-      const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      int length = random.Next(10, 30);
+      const string chars = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
       return new string(Enumerable.Repeat(chars, length)
           .Select(s => s[random.Next(s.Length)]).ToArray());
     }
@@ -35,6 +35,8 @@ namespace LabWork1Back
 
   public static class Benchmark
   {
+    static Random random = new Random();
+
     static string benchmarkDBPath = "benchmark.db";
 
     public static IEnumerable<BenchmarkResult> Run()
@@ -76,23 +78,23 @@ namespace LabWork1Back
 
     static void Test(IDBApiContext _context, int N)
     {
-      var random = new Random();
       for (int i = 0; i < N; i++)
-      {
-        Message m = new Message()
-        {
-          Content = RandomStringGenerator.RandomString(),
-          MessageType = (MessageTypeEnum)random.Next(5),
-          SenderID = random.Next(int.MaxValue),
-          ReceiverID = random.Next(int.MaxValue),
-          TimeStamp = DateTime.Now,
-          SpamScore = (ushort)random.Next(100)
-        };
-        _context.AddMessage(m);
-      }
+        _context.AddMessage(GetRandomMessage());
       _context.SaveChanges();
       _context.LoadData();
     }
 
+    public static Message GetRandomMessage()
+    {
+      return new Message()
+      {
+        Content = RandomStringGenerator.RandomString(),
+        MessageType = (MessageTypeEnum)random.Next(5),
+        SenderID = random.Next(int.MaxValue),
+        ReceiverID = random.Next(int.MaxValue),
+        TimeStamp = DateTime.Now,
+        SpamScore = (ushort)random.Next(100)
+      };
+    }
   }
 }

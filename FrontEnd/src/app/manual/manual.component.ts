@@ -37,7 +37,7 @@ export class ManualComponent implements OnInit {
   spamScoreForm:number;
   contentForm:string;
   timeForm:string;
-  typeForm: MessageTypeEnum;
+  typeForm: number;
 
   ShowModal(id:number){
     this.messageID = id;
@@ -47,8 +47,6 @@ export class ManualComponent implements OnInit {
     this.spamScoreForm = this.messages[id].spamScore;
     this.typeForm = this.messages[id].messageType;
     this.timeForm = this.datepipe.transform(this.messages[id].timeStamp, 'yyyy-MM-ddThh:mm', );
-    (<HTMLSelectElement>document.getElementById('test')).selectedIndex = this.typeForm + 1;
-    console.log(this.typeForm);
   }
 
   updateList() {
@@ -58,7 +56,7 @@ export class ManualComponent implements OnInit {
       receiverID: this.toUserForm,
       content: this.contentForm,
       spamScore: this.spamScoreForm,
-      messageType: this.typeForm,
+      messageType:  (<HTMLSelectElement>document.getElementById('test')).selectedIndex,
       timeStamp: new Date(this.timeForm),
     };
     this.http.post('api/messages/edit/', this.messages[this.messageID]).subscribe(response => {
@@ -151,7 +149,7 @@ export class ManualComponent implements OnInit {
 export class Message {
   public id: number;
   public timeStamp: Date;
-  public messageType: MessageTypeEnum;
+  public messageType: number;
   public senderID: number;
   public receiverID: number;
   public content: string;
@@ -159,5 +157,3 @@ export class Message {
   constructor() {
   }
 }
-
-enum MessageTypeEnum { News, Question, Answer, Invite, Comment };

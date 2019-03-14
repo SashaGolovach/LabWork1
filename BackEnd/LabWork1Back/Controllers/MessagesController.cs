@@ -39,6 +39,14 @@ namespace LabWork1Back.Controllers
       return m;
     }
 
+    [HttpGet("add/random")]
+    public ActionResult<Message> AddRandomMessage()
+    {
+      var m = _context.AddRandomMessage();
+      _context.SaveChanges();
+      return m;
+    }
+
     [HttpGet("ends/")]
     public ActionResult<IEnumerable<Message>> GetMessagesEndWith([FromHeader] string pattern)
     {

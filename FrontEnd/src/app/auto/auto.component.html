@@ -1,3 +1,41 @@
-<p>
-  auto works!
-</p>
+<div class="container">
+  <div id="table" class="table-editable">
+    <span class="table-add float-right mb-3 mr-2">
+      <button type="button" class="btn btn-success" (click)="start()">Start</button>
+    </span>
+    <table class="table table-bordered table-responsive-md table-striped text-center">
+      <tr>
+        <th class="text-center">ID</th>
+        <th class="text-center">From</th>
+        <th class="text-center">To</th>
+        <th class="text-center">Content</th>
+        <th class="text-center">Spam score</th>
+        <th class="text-center">Message type</th>
+        <th class="text-center">Time</th>
+      </tr>
+      <tr *ngFor="let message of messages; let id = index">
+        <td>
+          <span contenteditable="false">{{message.id}}</span>
+        </td>
+        <td>
+          <span>{{message.senderID}}</span>
+        </td>
+        <td>
+          <span>{{message.receiverID}}</span>
+        </td>
+        <td>
+          <span>{{message.content}}</span>
+        </td>
+        <td>
+          <span>{{message.spamScore}}</span>
+        </td>
+        <td>
+          <span>{{messageTypes[message.messageType].name}}</span>
+        </td>
+        <td>
+          <span>{{message.timeStamp | date: 'dd.MM.yyyy HH:mm'}}</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

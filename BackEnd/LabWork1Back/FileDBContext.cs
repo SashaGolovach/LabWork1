@@ -84,6 +84,14 @@ namespace LabWork1Back
       return message;
     }
 
+    public Message AddRandomMessage()
+    {
+      var message = Benchmark.GetRandomMessage();
+      message.ID = GenerateID();
+      data.Insert(0, message);
+      return message;
+    }
+
     public void AddMessage(Message m)
     {
       data.Insert(0, m);
@@ -111,7 +119,7 @@ namespace LabWork1Back
 
     public void DeleteMessage(long ID)
     {
-      data.Remove(data.Single(m => m.ID == ID));
+      data.Remove(data.SingleOrDefault(m => m.ID == ID));
     }
 
     public void SaveChanges()
