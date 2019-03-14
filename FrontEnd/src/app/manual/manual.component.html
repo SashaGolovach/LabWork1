@@ -102,7 +102,7 @@
           <i class="fas fa-envelope prefix grey-text mb-1">Message type</i>
         <div class="md-form mb-4">
             <select class="custom-select" type="number" [(ngModel)]="typeForm" id="test">
-                <option *ngFor="let option of messageTypes">{{option.name}}</option>
+                <option *ngFor="let option of messageTypes" [ngValue]="option.num">{{option.name}}</option>
             </select>
         </div>
         <i class="fas fa-envelope prefix grey-text mb-1">Time</i>

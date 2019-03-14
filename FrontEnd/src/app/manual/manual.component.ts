@@ -56,7 +56,7 @@ export class ManualComponent implements OnInit {
       receiverID: this.toUserForm,
       content: this.contentForm,
       spamScore: this.spamScoreForm,
-      messageType:  (<HTMLSelectElement>document.getElementById('test')).selectedIndex,
+      messageType: this.typeForm,
       timeStamp: new Date(this.timeForm),
     };
     this.http.post('api/messages/edit/', this.messages[this.messageID]).subscribe(response => {
