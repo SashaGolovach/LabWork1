@@ -10,9 +10,9 @@ This project exists 2 applications: FrontEnd (Angular 7) and BackEnd (ASP.NET Co
 4. Open terminal in LabWork1\BackEnd\LabWork1Back folder
 5. Run `dotnet run` command.
 <p align="center">
-  <img src="./images/1.png">
+  <img src="./images/3.jpeg">
 </p>
 <p align="center">
-  <img src="./images/2.png">
+  <img src="./images/4.jpeg">
 </p>
 Feel free to share your feedback with me and let me know if any bugs found.
