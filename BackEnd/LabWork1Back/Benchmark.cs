@@ -24,8 +24,8 @@ namespace LabWork1Back
   {
     public string timeElapsed { get; set; }
     public int N { get; set; }
-    public string MemoryUsed { get; set; }
-    public BenchmarkResult(string _timeElapsed, int n, string memoryUsed)
+    public long MemoryUsed { get; set; }
+    public BenchmarkResult(string _timeElapsed, int n, long memoryUsed)
     {
       timeElapsed = _timeElapsed;
       N = n;
@@ -69,10 +69,9 @@ namespace LabWork1Back
       }
       while (stopWatch.Elapsed.Seconds < 10);
       TimeSpan ts = stopWatch.Elapsed;
-      string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-            ts.Hours, ts.Minutes, ts.Seconds,
-            ts.Milliseconds / 10);
-      return new BenchmarkResult(elapsedTime, N, (new FileInfo(benchmarkDBPath)).Length.ToString() + "bytes");
+      string elapsedTime = String.Format("{0:00}.{1:00}",
+        ts.Seconds, ts.Milliseconds / 10);
+      return new BenchmarkResult(elapsedTime, N, (new FileInfo(benchmarkDBPath)).Length);
     }
 
     static void Test(IDBApiContext _context, int N)
